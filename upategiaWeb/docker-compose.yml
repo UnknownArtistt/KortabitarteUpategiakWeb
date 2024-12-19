@@ -1,0 +1,35 @@
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=bdweb
+      - MYSQL_ROOT_PASSWORD=señorPabo
+      - MYSQL_USER=miguel
+      - MYSQL_PASSWORD=miguel
+    volumes:
+      - ./volumenes/mysql:/var/lib/mysql
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    networks:
+      - app_network
+
+  php:
+    build: .
+    volumes:
+      - ./web/:/var/www/html
+    expose:
+      - 80
+      - 443
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - mysql
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
