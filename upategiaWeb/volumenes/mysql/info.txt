@@ -1,0 +1,1 @@
+Zip honetan mysql direktorioan dauden fitxategia guztiak konprimituta daude, konprimitu ezazu. Ezin dira 100 baino fitxategi gehiago aldi berean igo eta ezin dira ere 25MB baino gehiago pixatzen duten fitxategiak igo ere.
